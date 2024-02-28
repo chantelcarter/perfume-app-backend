@@ -116,7 +116,7 @@ Add JWT configurations
     end
     ```
 - Create  DenyList to revoke JWT using this command in terminal: `rails generate model jwt_denylist`
-- Update change method with following code:
+- Update change method with following code in newly generated migration file in > db > migrate:
   ```
   def change
     create_table :jwt_denylist do |t|
