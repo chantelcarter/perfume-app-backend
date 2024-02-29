@@ -206,3 +206,9 @@ end
 - Add index method in > app > controllers > perfumes_controller.rb
 
 - RSpec testing in > spec > requests > perfumes_spec.rb
+
+# Rails API Create Functionality and Request Specs
+
+- Add create method in > app > controllers > perfumes_controller.rb
+
+- RSpec testing in > spec > requests > perfumes_spec.rb
