@@ -212,3 +212,9 @@ end
 - Add create method in > app > controllers > perfumes_controller.rb
 
 - RSpec testing in > spec > requests > perfumes_spec.rb
+
+# Rails API Update Functionality
+
+- Add update method in > app > controllers > perfumes_controller.rb
+
+- RSpec testing in > spec > requests > perfumes_spec.rb
