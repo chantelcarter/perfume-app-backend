@@ -101,7 +101,7 @@ Add JWT configurations
   - open credentials file to add secret key with this command in terminal: `EDITOR="code --wait" bin/rails credentials:edit`
   - add this underneath “secret\_key\_base” in credentials file: `jwt_secret_key: <newly-created secret key from termial>`
   - in terminal use `control + c` to save
-    - \*\*\*\*\* THIS DID NOT WORK FOR ME, INFORM INSTRUCTORS ABOUT PROCESS \*\*\*\*\**
+    - \*\*\*\*\* THIS DID NOT WORK FOR ME, INFORM INSTRUCTORS ABOUT PROCESS \*\*\*\*\*
 - Configure JWT to work with devide by adding this code to the  Devise configurations file in > config > initiailizers > devise.rb:
   - ```
     config.jwt do |jwt|
@@ -193,3 +193,10 @@ user2_perfumes.each do |perfume|
 end
 ```
 - Run `rails db:seed` in terminal
+
+# Rails API Model Validations
+
+- Add validations in > app > models > perfume.rb
+
+- Validations RSpec testing is done in > spec > models > perfume_spec.rb
+      - When testing for user_id be sure to use `perfume = Perfume.create` NOT `perfume = user.perfumes.create` because you're trying to validate the user's id, so you have to remove the user from the create function.
