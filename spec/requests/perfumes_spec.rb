@@ -212,5 +212,83 @@ RSpec.describe "Perfumes", type: :request do
     expect(response.status).to eq 422
     json = JSON.parse(response.body)
     expect(json['user_id']).to include "can't be blank"
-  end  
+  end
+
+  describe "PATCH /update" do
+    it "updates a perfume" do
+      perfume_params = {
+        perfume: {
+          name: "Accident À La Vanille",
+          designer: "Jousset Parfums",
+          category: "Gourmand",
+          top_notes: "Vanilla",
+          middle_notes: "Vanilla, Sandalwood",
+          base_notes: "Vanilla, Styrax",
+          image: "https://fimgs.net/mdimg/perfume/375x500.68076.jpg",
+          user_id: user.id
+        }
+      }
+      post '/perfumes', params: perfume_params
+  
+      updated_perfume_params = {
+        perfume: {
+          name: "Poets of Berlin",
+          designer: "Vilhelm Parfumerie",
+          category: "Woody",
+          top_notes: "Blueberry, Lemon",
+          middle_notes: "Bamboo, Orris",
+          base_notes: "Vanilla, Sandalwood, Vetiver",
+          image: "https://fimgs.net/mdimg/perfume/375x500.49306.jpg"
+        }
+      }
+      perfume = Perfume.first
+      
+      patch "/perfumes/#{perfume.id}", params: updated_perfume_params
+
+      expect(response).to have_http_status(200)
+  
+      updated_perfume = Perfume.first
+      
+      expect(updated_perfume.name).to eq('Poets of Berlin')
+      expect(updated_perfume.designer).to eq('Vilhelm Parfumerie')
+      expect(updated_perfume.category).to eq('Woody')
+      expect(updated_perfume.top_notes).to eq("Blueberry, Lemon")
+      expect(updated_perfume.middle_notes).to eq("Bamboo, Orris")
+      expect(updated_perfume.base_notes).to eq("Vanilla, Sandalwood, Vetiver")
+      expect(updated_perfume.image).to eq("https://fimgs.net/mdimg/perfume/375x500.49306.jpg")
+    end
+
+    it 'returns a 422 status code' do
+      perfume_params = {
+        perfume: {
+          name: "Accident À La Vanille",
+          designer: "Jousset Parfums",
+          category: "Gourmand",
+          top_notes: "Vanilla",
+          middle_notes: "Vanilla, Sandalwood",
+          base_notes: "Vanilla, Styrax",
+          image: "https://fimgs.net/mdimg/perfume/375x500.68076.jpg",
+          user_id: user.id
+        }
+      }
+      post '/perfumes', params: perfume_params
+
+      invalid_perfume_params = {
+        perfume: {
+          name: nil,
+          designer: nil,
+          category: nil,
+          top_notes: nil,
+          middle_notes: nil,
+          base_notes: nil,
+          image: nil
+        }
+      }
+
+      perfume = Perfume.first
+      patch "/perfumes/#{perfume.id}", params: invalid_perfume_params
+
+      expect(response).to have_http_status(422)
+    end
+  end
 end

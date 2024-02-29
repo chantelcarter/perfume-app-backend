@@ -5,7 +5,17 @@ class PerfumesController < ApplicationController
   end
 
   def create
-    perfume = Perfume.create(herb_params)
+    perfume = Perfume.create(perfume_params)
+    if perfume.valid?
+      render json: perfume
+    else
+      render json: perfume.errors, status: 422
+    end
+  end
+
+  def update
+    perfume = Perfume.find(params[:id])
+    perfume.update(perfume_params)
     if perfume.valid?
       render json: perfume
     else
@@ -14,7 +24,7 @@ class PerfumesController < ApplicationController
   end
 
   private
-  def herb_params
+  def perfume_params
     params.require(:perfume).permit(:name, :designer, :category, :top_notes, :middle_notes, :base_notes, :image, :user_id)
   end
 end
