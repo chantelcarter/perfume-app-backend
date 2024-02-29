@@ -291,4 +291,24 @@ RSpec.describe "Perfumes", type: :request do
       expect(response).to have_http_status(422)
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'deletes a perfume' do
+      perfume = Perfume.create(
+        name: "Accident À La Vanille",
+        designer: "Jousset Parfums",
+        category: "Gourmand",
+        top_notes: "Vanilla",
+        middle_notes: "Vanilla, Sandalwood",
+        base_notes: "Vanilla, Styrax",
+        image: "https://fimgs.net/mdimg/perfume/375x500.68076.jpg",
+        user_id: user.id
+      )
+
+      delete "/perfumes/#{perfume.id}"
+
+      expect(response).to have_http_status(200)
+      expect(Perfume.find_by(id: perfume.id)).to be_nil
+    end
+  end
 end

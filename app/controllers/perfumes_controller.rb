@@ -23,6 +23,15 @@ class PerfumesController < ApplicationController
     end
   end
 
+  def destroy
+    perfume = Perfume.find(params[:id])
+    if perfume.destroy
+      render json: perfume
+    else
+      render json: perfume.errors, status: 422
+    end
+  end
+
   private
   def perfume_params
     params.require(:perfume).permit(:name, :designer, :category, :top_notes, :middle_notes, :base_notes, :image, :user_id)

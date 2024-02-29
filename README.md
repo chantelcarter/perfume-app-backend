@@ -218,3 +218,9 @@ end
 - Add update method in > app > controllers > perfumes_controller.rb
 
 - RSpec testing in > spec > requests > perfumes_spec.rb
+
+# Rails API Delete Functionality
+
+- Add destroy method in > app > controllers > perfumes_controller.rb
+
+- RSpec testing in > spec > requests > perfumes_spec.rb
