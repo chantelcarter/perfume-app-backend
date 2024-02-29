@@ -200,3 +200,9 @@ end
 
 - Validations RSpec testing is done in > spec > models > perfume_spec.rb
       - When testing for user_id be sure to use `perfume = Perfume.create` NOT `perfume = user.perfumes.create` because you're trying to validate the user's id, so you have to remove the user from the create function.
+
+# Rails API Read Functionality and Request Specs
+
+- Add index method in > app > controllers > perfumes_controller.rb
+
+- RSpec testing in > spec > requests > perfumes_spec.rb
