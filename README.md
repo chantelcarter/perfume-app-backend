@@ -1,3 +1,12 @@
+# Create Rails App
+- `rails new perfume-app-backend -d postgresql -T`
+- `cd perfume-app-backend`
+- `rails db:create`
+- `rails server`
+- Add the remote from your GitHub classroom repository
+- Create a default branch (main)
+- Make an initial commit to the repository
+
 # Rails API Configurations
 Rspec dependencies
 
