@@ -10,6 +10,15 @@ user1_perfumes = [
     middle_notes: "Vanilla, Sandalwood",
     base_notes: "Vanilla, Styrax",
     image: "https://fimgs.net/mdimg/perfume/375x500.68076.jpg"
+  },
+  {
+    name: "Pink Boa",
+    designer: "Stéphane Humbert Lucas 777",
+    category: "Fruity",
+    top_notes: "Rosemary, Bergamot, Blackcurrant",
+    middle_notes: "Vodka, Raspberry, Basil",
+    base_notes: "Patchouli, Amber, Olibanum, Musk",
+    image: "https://fimgs.net/mdimg/perfume/375x500.75021.jpg"
   }
 ]
 
@@ -22,6 +31,15 @@ user2_perfumes = [
     middle_notes: "Turkish Rose",
     base_notes: "Vanilla, White Musk, Cedar",
     image: "https://fimgs.net/mdimg/perfume/375x500.15210.jpg"
+  },
+  {
+    name: "Cassili",
+    designer: "Parfums de Marly",
+    category: "Fruity",
+    top_notes: "Red Currant, Bulgarian Rose, Transparent White Flowers",
+    middle_notes: "Plum Accord, Mimosa Absolute, Plumeria, Petalia",
+    base_notes: "Sandalwood, Tonka Beans, Vanilla Pod",
+    image: "https://fimgs.net/mdimg/perfume/375x500.54660.jpg"
   }
 ]
 
