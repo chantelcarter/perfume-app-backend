@@ -110,7 +110,8 @@ Add JWT configurations
   - open credentials file to add secret key with this command in terminal: `EDITOR="code --wait" bin/rails credentials:edit`
   - add this underneath “secret\_key\_base” in credentials file: `jwt_secret_key: <newly-created secret key from termial>`
   - in terminal use `control + c` to save
-    - \*\*\*\*\* THIS DID NOT WORK FOR ME, INFORM INSTRUCTORS ABOUT PROCESS \*\*\*\*\*
+    - \*\*\*\*\* do a file+save, close the file, then verify in termial that it says "encrypted and saved" \*\*\*\*\*
+
 - Configure JWT to work with devide by adding this code to the  Devise configurations file in > config > initiailizers > devise.rb:
   - ```
     config.jwt do |jwt|
