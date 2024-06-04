@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'perfume-app-frontend.onrender.com/'
+    origins 'https://perfume-app-frontend.onrender.com'
     resource '*',
     headers: ["Authorization"],
     expose: ["Authorization"],
